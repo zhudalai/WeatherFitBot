@@ -2,10 +2,13 @@ services:
   - type: web
     name: weatherfit-api
     runtime: python
+    region: oregon
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
       - key: OPENWEATHER_API_KEY
         sync: false
       - key: OPENROUTER_API_KEY
