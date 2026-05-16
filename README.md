@@ -29,4 +29,4 @@ license: mit
 可选：
 
 - `REDIS_URL` — 不设置则自动使用内存缓存
-Demo已部署，访问https://weather-fit-bot.vercel.app/
+- Demo已部署，访问https://weather-fit-bot.vercel.app/
