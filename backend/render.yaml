@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: weatherfit-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: anthropic/claude-sonnet-4
+      - key: REDIS_URL
+        sync: false
+      - key: APP_ENV
+        value: production
+      - key: CORS_ORIGINS
+        sync: false
+      - key: WEATHER_CACHE_TTL
+        value: "900"
+      - key: FORECAST_CACHE_TTL
+        value: "1800"
